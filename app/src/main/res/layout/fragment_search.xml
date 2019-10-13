@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handlers"
+            type="id.co.code.newsapp.ui.search.SearchFragment.SearchEventHandler" />
+
+        <variable
+            name="viewmodel"
+            type="id.co.code.newsapp.ui.search.SearchViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorDarkBackground">
+
+            <!-- Search Container Here -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/search_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorYellowCyber">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:onClick="@{handlers::onSearchClick}"
+                        android:padding="8dp"
+                        app:srcCompat="@drawable/ic_search_black"
+                        tools:ignore="VectorDrawableCompat" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/iv_search"
+                        android:hint="Whats up today..." />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <!-- End Search Container -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/search_toolbar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_toolbar"
+                android:background="@android:color/white"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="NO DATA"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+            <!-- Default GONE, to handle load more when orientation has change  -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recycler_news"
+                android:layout_centerHorizontal="true"
+                android:padding="16dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
