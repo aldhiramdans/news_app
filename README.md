@@ -15,7 +15,7 @@ Project Requirement :
 - Database : ROOM 
 - Network : Retrofit2
 
-additional requirements : 
+Additional : 
 - Android Navigation
 - ViewModel & ViewBinding
 - Room livedata
