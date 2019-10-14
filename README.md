@@ -1,6 +1,6 @@
-Training Project For Implement MVVM Design Architecture
+Training Project For <b>Clean Code</b> and Implement <b>MVVM</b> Design Architecture
 
-News App
+<b>News App<b>
 
 About feature : 
 - Show news on list and endless scroll (for load more)
