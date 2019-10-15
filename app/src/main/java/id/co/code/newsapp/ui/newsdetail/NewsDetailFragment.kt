@@ -34,8 +34,13 @@ class NewsDetailFragment : BaseFragment<NewsDetailViewModel, FragmentNewsDetailB
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewDataBinding.tvDate.text =
+        val date: String = if (news?.pub_date != null) {
             StringHelper.formatStringFromRFC3339Format(news!!.pub_date!!, "dd MMMM yyyy")
+        } else {
+            ""
+        }
+        viewDataBinding.tvDate.text = date
+
         if (news!!.multimedia != null && news!!.multimedia!!.isNotEmpty()) {
             Glide.with(viewDataBinding.ivThumbnail.context)
                 .load(Constants.BASE_IMAGE_URL + news!!.multimedia?.get(0)!!.url)
