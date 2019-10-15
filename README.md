@@ -36,7 +36,7 @@ Additional :
 - ViewModel & ViewBinding
 - Room livedata
 
-Resources To : 
+Resources : 
 - https://medium.com/@nandoseptian/mvvm-architecture-component-i-4a6c6d38443c
 - https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0
 - https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1
